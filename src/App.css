@@ -95,3 +95,8 @@
 .slide-in-right.animate {
   animation: slideInFromRight 0.8s ease-out 0.5s forwards;
 }
+
+/* Hide scrollbar for testimonials */
+.overflow-x-auto::-webkit-scrollbar {
+  display: none;
+}
