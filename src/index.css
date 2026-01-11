@@ -15,3 +15,16 @@
 button{
   cursor:pointer
 }
+
+/* 이미지 기본 렌더링 안정화 */
+img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+/* iOS Safari에서 축소/이동 시 흐림 완화에 도움되는 경우가 많음 */
+img, svg {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
