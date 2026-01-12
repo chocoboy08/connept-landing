@@ -32,12 +32,13 @@ interface InquiryType {
 }
 
 export const FifthPage = forwardRef<HTMLDivElement>((_, ref) => {
-  const [formData, setFormData] = useState<InquiryType>({
+  const initialValue: InquiryType = {
     name: "",
     contact: "",
     email: "",
     inquiry: "",
-  });
+  };
+  const [formData, setFormData] = useState<InquiryType>(initialValue);
 
   const postInquiry = async (data: InquiryType) => {
     const response = await fetch(
@@ -62,7 +63,8 @@ export const FifthPage = forwardRef<HTMLDivElement>((_, ref) => {
       return;
     }
     const response = await postInquiry(formData);
-    console.log(response);
+    if (response.success) setFormData(initialValue);
+    else throw console.error("신청에 실패했습니다.");
   };
 
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
