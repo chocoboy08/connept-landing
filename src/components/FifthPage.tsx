@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, forwardRef } from "react";
+import { forwardRef, useEffect, useRef, useState } from "react";
 import apply from "../assets/icon_apply.svg";
 
 const TESTIMONIALS = [
@@ -31,7 +31,7 @@ interface InquiryType {
   inquiry: string;
 }
 
-export const FifthPage = forwardRef<HTMLDivElement>((props, ref) => {
+export const FifthPage = forwardRef<HTMLDivElement>((_, ref) => {
   const [formData, setFormData] = useState<InquiryType>({
     name: "",
     contact: "",
