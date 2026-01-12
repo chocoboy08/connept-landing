@@ -2,7 +2,11 @@ import background from "../assets/background.svg";
 import logo from "../assets/logo.svg";
 import video from "../assets/video.mp4";
 
-export function FirstPage() {
+interface FirstPageProps {
+  onContactClick: () => void;
+}
+
+export function FirstPage({ onContactClick }: FirstPageProps) {
   return (
     <div className="flex flex-col">
       {/* Hero Section - Video + Content */}
@@ -53,6 +57,7 @@ export function FirstPage() {
 
               {/* Contact Button */}
               <button
+                onClick={onContactClick}
                 className="text-white font-normal hover:opacity-90 transition-opacity"
                 style={{
                   width: "clamp(60px,8vw,100px)",
@@ -107,6 +112,7 @@ export function FirstPage() {
               style={{ gap: "clamp(15px, 2.5vw, 30px)" }}
             >
               <button
+                onClick={onContactClick}
                 style={{
                   backgroundColor: "#150C9457",
                   border: "2px solid #DBEAFE",

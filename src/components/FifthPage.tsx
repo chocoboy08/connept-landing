@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, forwardRef } from "react";
 import apply from "../assets/icon_apply.svg";
 
 const TESTIMONIALS = [
@@ -31,7 +31,7 @@ interface InquiryType {
   inquiry: string;
 }
 
-export function FifthPage() {
+export const FifthPage = forwardRef<HTMLDivElement>((props, ref) => {
   const [formData, setFormData] = useState<InquiryType>({
     name: "",
     contact: "",
@@ -152,6 +152,7 @@ export function FifthPage() {
 
   return (
     <div
+      ref={ref}
       className="flex flex-col items-center justify-start bg-linear-to-b from-[#dfe0fd] to-indigo-600"
       style={{ paddingBottom: "clamp(48px, 14vw, 220px)" }}
     >
@@ -409,4 +410,6 @@ export function FifthPage() {
       </div>
     </div>
   );
-}
+});
+
+FifthPage.displayName = "FifthPage";
