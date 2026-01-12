@@ -11,11 +11,12 @@ interface ThirdPageProps {
 export function ThirdPage({ featureBoxes }: ThirdPageProps) {
   return (
     <div
-      className="h-screen flex flex-col items-center justify-start px-8"
+      className="min-h-screen flex flex-col items-center justify-start px-8"
       style={{
         background:
           "linear-gradient(to bottom, #fff 0%, #d1d4ff 63.46%, #eaebff 100%)",
         gap: "clamp(20px, 5vw, 80px)",
+        paddingBottom: "clamp(40px, 6vw, 80px)",
       }}
     >
       {/* Feature Boxes Grid */}

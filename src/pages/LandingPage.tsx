@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { FifthPage } from "../components/FifthPage";
 import { FirstPage } from "../components/FirstPage";
 import { FourthPage } from "../components/FourthPage";
@@ -12,16 +13,21 @@ interface LandingPageProps {
 
 export function LandingPage({ type }: LandingPageProps) {
   const content = landingContent[type];
+  const contactFormRef = useRef<HTMLDivElement>(null);
+
+  const scrollToContactForm = () => {
+    contactFormRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <div className="h-screen overflow-y-scroll overflow-x-hidden">
-      <FirstPage />
+      <FirstPage onContactClick={scrollToContactForm} />
       <SecondPage title={content.secondPage.title} />
       <ThirdPage featureBoxes={content.thirdPage.featureBoxes} />
       <FourthPage
         showOperationManagement={content.fourthPage.showOperationManagement}
       />
-      <FifthPage />
+      <FifthPage ref={contactFormRef} />
     </div>
   );
 }
